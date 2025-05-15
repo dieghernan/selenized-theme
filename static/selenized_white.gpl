@@ -1,0 +1,28 @@
+GIMP Palette
+Name: Selenized White
+# Colors from Selenized Project
+255 255 255 bg_0
+235 235 235 bg_1
+205 205 205 bg_2
+135 135 135 dim_0
+ 71  71  71 fg_0
+ 40  40  40 fg_1
+214   0  12 red
+ 29 151   0 green
+196 151   0 yellow
+  0 100 228 blue
+221  15 157 magenta
+  0 173 156 cyan
+208  74   0 orange
+127  81 214 violet
+191   0   0 br_red
+  0 132   0 br_green
+175 133   0 br_yellow
+  0  84 207 br_blue
+199   0 139 br_magenta
+  0 154 138 br_cyan
+186  55   0 br_orange
+107  64 195 br_violet
+
+
+
