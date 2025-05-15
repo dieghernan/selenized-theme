@@ -1,0 +1,265 @@
+/* Source: https://github.com/dieghernan/pretty-themes */
+
+
+// Similar to the treatment for vscode
+
+/*
+$bg: white !default;
+$fg: black !default;
+$accent: blue !default;
+$selection: grey !default;
+$comment: grey90 !default;
+*/
+
+$bgaccent1: mix($bg, $accent, 98%);
+$bgaccent2: mix($bg, $accent, 80%);
+$bgaccent3: mix($fg, $accent, 50%);
+$bgfg1: mix($bg, $fg, 90%);
+$bgfg2: mix($bg, $fg, 70%);
+
+
+/* ---- RStudio Theme ---- */
+
+/* Main window borders and ribbons (Environment > Function, etc.) */
+//  "sideBar.background" = bgfg1,
+//  "sideBar.foreground" = fg,
+.rstudio-themes-flat .rstudio-themes-default,
+.rstudio-themes-flat .rstudio-themes-dark-grey {
+	background: $bgfg1;
+	color: $fg;
+
+	.rstudio-themes-background {
+		background: $bgfg1;
+	}
+
+	// collapsed toolbar on rstudio server 
+	[role="banner"]+[role="navigation"],
+	header+[role="navigation"] {
+		&>table>tbody>tr>td {
+			background: $bgfg1;
+			border-color: $bgfg2;
+		}
+	}
+
+	.rstudio-themes-border {
+		border-color: $bgfg2;
+	}
+
+	// Data Grid
+	.dataGridHeader,
+	tr[__gwt_header_row]> :-webkit-any(td, th),
+	.dataTables_info {
+		background-color: $bgfg1;
+		border-color: $bgfg2;
+		border-width: 1px;
+	}
+
+	// git tab
+	.GNTYACMBKYC {
+		background-color: $bgaccent1;
+	}
+}
+
+/* Toolbar and search */
+.rstudio-themes-dark-grey,
+.rstudio-themes-default {
+	.rstheme_center {
+		background-color: $bg;
+	}
+
+	.search {
+		background-color: $bg;
+	}
+
+	.gwt-SplitLayoutPanel-HDragger,
+	.gwt-SplitLayoutPanel-VDragger {
+		background: $bgaccent1  !important;
+	}
+
+
+  // Breadcrimbs
+	.rstheme_toolbarWrapper {
+		background: $bgfg1;
+		foreground: $fg;
+
+		button,
+		a,
+		div {
+			color: $fg;
+		}
+	}
+}
+
+/* Editor Group & Tabs */
+// "editorGroupHeader.tabsBackground" = bgaccent1,
+//"tab.activeBackground" = bgaccent2,
+//"tab.activeForeground" = accent,
+// "tab.inactiveBackground" = bgfg1,
+// "tab.inactiveForeground" = fg,
+
+.rstudio-themes-dark-grey,
+.rstudio-themes-default {
+
+	// Background Panel
+	.gwt-TabLayoutPanelTabs, .GNTYACMBNS,
+	.rstheme_multiPodUtilityTabArea {
+		background: $bgaccent1;
+	}
+
+	//Tab: Inactive
+	.gwt-TabLayoutPanelTabs table.rstheme_tabLayoutCenter,
+	.rstheme_minimizedWindowObject table.rstheme_tabLayoutCenter {
+		background: $bgfg1;
+
+		.gwt-Label {
+			color: $fg;
+		}
+	}
+
+	// Tab: Active
+	.gwt-TabLayoutPanelTabs .gwt-TabLayoutPanelTab-selected table.rstheme_tabLayoutCenter {
+		background: $bgaccent2;
+
+		.gwt-Label {
+			color: $accent;
+			font-style: italic; // vscode style
+		}
+	}
+
+	// Tab: Hover 
+	.gwt-TabLayoutPanelTab:hover .rstheme_tabLayoutCenter {
+		background: $bgaccent2;
+	}
+
+}
+
+#rstudio_workbench_panel_find_in_files td[colspan="2"] {
+	// file name in Find in Files
+	color: $accent;
+}
+
+// Pane toolbars
+
+.rstudio-themes-dark-grey,
+.rstudio-themes-default {
+
+  // Breadcrumbs
+	.rstheme_secondaryToolbar,
+	.dataGridHeader {
+		background: $bgfg1;
+		color: $fg;
+	}
+}
+
+/* Menu background */
+.rstudio-themes-dark-grey,
+.rstudio-themes-default,
+.rstudio-themes-flat {
+
+	.popupMiddleCenter,
+	.menuPopupMiddleCenter,
+	.suggestPopupMiddleCenter {
+		background: $bgaccent1;
+		color: $fg;
+
+		.item.item-selected {
+			color: $accent;
+			background: $bgaccent2;
+		}
+	}
+
+	.themedPopupPanel {
+		border: solid 1px $bgaccent2;
+
+		&~div.popupContent div:nth-child(1) {
+			border: solid 1px $bgaccent2;
+		}
+	}
+
+	.popupContent {
+		background: $bgaccent1;
+		color: $fg;
+		border-color: $bgaccent2;
+
+		&:not(.popupMiddleCenterInner) div div:nth-child(2) {
+			background-color: unset;
+			border: none;
+		}
+
+		&+.rstudio-themes-scrollbars {
+			border-color: $bgaccent2;
+		}
+	}
+
+	.gwt-PopupPanel .popupContent {
+		background: $bgaccent1;
+		padding: 2px;
+
+		table {
+			background: $fg;
+			border: 0;
+
+			.gwt-Label {
+				color: $bgaccent1;
+			}
+		}
+	}
+
+	.gwt-MenuItem.gwt-MenuItem-selected,
+	.gwt-MenuItem.gwt-MenuItem-selected>table {
+		background: $bgaccent2;
+		color: $accent;
+	}
+}
+
+/* hacky toolbars section */
+
+.rstudio-themes-dark-grey,
+.rstudio-themes-default,
+{
+
+/* Data Frame Preview */
+.dataTables_wrapper thead th {
+	background-color: $bgaccent2  !important;
+	color: $accent  !important;
+}
+
+.dataTables_scrollBody table tbody td:first-child {
+	background: $bgfg1  !important;
+	color: $fg  !important;
+}
+
+.dataTables_info {
+	background: $bgaccent1  !important;
+	color: $accent  !important;
+}
+}
+
+
+/* job progress bar */
+.rstheme_toolbarWrapper,
+.windowframe {
+	[role="progressbar"]>div {
+		background-color: opacify($selection, 1);
+	}
+}
+
+
+// Input only in dark
+.rstudio-themes-dark-grey{
+  input[type="checkbox" i] {
+		background-color: $bgaccent3;
+	}
+}
+
+/* scrollbars */
+// In tabs only
+.rstudio-themes-flat, .rstudio-themes-dark-grey, .rstudio-themes-default {
+  .gwt-TabLayoutPanelContentContainer {
+    scrollbar-width: auto;
+    scrollbar-color: $bgaccent2 $bgaccent1;
+    
+  }
+}
+
+

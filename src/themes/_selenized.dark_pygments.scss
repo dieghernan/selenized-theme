@@ -1,0 +1,63 @@
+/* 
+ * selenized.dark theme
+ * author Diego H <https://github.com/dieghernan/>
+ */
+
+$bg_0: #103C48;
+$bg_1: #174956;
+$bg_2: #325b66;
+$dim_0: #72898F;
+$fg_0: #ADBCBC;
+$fg_1: #CAD8D9;
+$red: #FA5750;
+$green: #75B938;
+$yellow: #DBB32D;
+$blue: #4695F7;
+$magenta: #F275BE;
+$cyan: #41C7B9;
+$orange: #ED8649;
+$violet: #AF88EB;
+$br_red: #FF665C;
+$br_green: #84C747;
+$br_yellow: #EBC13D;
+$br_blue: #58A3FF;
+$br_magenta: #FF84CD;
+$br_cyan: #53D6C7;
+$br_orange: #FD9456;
+$br_violet: #BD96FA;
+
+
+$foreground: $fg_0; // Base color: usually on Settings > Foreground
+$background: $bg_0; // Background color: usually on Settings > Background
+$highlight: $bg_1;
+$comment: $dim_0;
+$constant_character_escape: $red;
+$constant_language: $cyan;
+$constant_numeric: $cyan;
+$entity_name: $blue;
+$entity_name_tag_css: $green;
+$entity_other_attribute-name: $blue;
+$entity_other_attribute-name_id: $green;
+$entity_other_attribute-name_html: $green;
+$invalid: $br_red;
+$keyword_control: $green;
+$keyword_control_import: $orange;
+$keyword_operator: $green;
+$markup_heading: $br_yellow;
+$markup_raw: $blue;
+$storage_type: $green;
+$string: $cyan;
+$support: $blue;
+$support_type: $yellow;
+$support_type_property-name: $blue;
+$variable: $fg_0;
+$variable_language: $red;
+$variable_other: $orange;
+
+@import "./src/_pygments.scss";
+
+// Styles, weights and others
+.highlight {
+  // Invalid in bold
+  .err, .gr, .gt, .ne {font-weight: bold;}
+}

@@ -1,0 +1,77 @@
+{
+  "name": "selenized-theme",
+  "displayName": "Selenized Themes",
+  "description": "VS Code themes based on Selenized by Jan Warchoł",
+  "publisher": "dieghernan",
+  "license": "MIT",
+  "version": "0.1.0",
+  "maintainers": [
+    "dieghernan"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dieghernan/selenized-theme.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dieghernan/selenized-theme/issues"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "sponsor": {
+    "url": "https://github.com/dieghernan/selenized-theme?sponsor=1"
+  },
+  "keywords": [
+    "selenized",
+    "theme",
+    "dark-theme",
+    "light-theme",
+    "white-theme",
+    "black-theme",
+    "solarized"
+  ],
+  "icon": "static/icon.png",
+  "galleryBanner": {
+    "color": "#FBF3DB",
+    "theme": "light"
+  },
+  "badges": [
+    {
+      "url": "https://img.shields.io/github/license/dieghernan/selenized-theme",
+      "href": "https://github.com/dieghernan/selenized-theme/blob/main/LICENSE",
+      "description": "MIT License"
+    },
+    {
+      "url": "https://img.shields.io/badge/PRs-welcome-brightgreen.svg",
+      "href": "https://github.com/dieghernan/selenized-theme/pulls",
+      "description": "PRs Welcome"
+    }
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Selenized Black Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/selenized-black-color-theme.json"
+      },
+      {
+        "label": "Selenized Dark Theme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/selenized-dark-color-theme.json"
+      },
+      {
+        "label": "Selenized Light Theme",
+        "uiTheme": "vs",
+        "path": "./themes/selenized-light-color-theme.json"
+      },
+      {
+        "label": "Selenized White Theme",
+        "uiTheme": "vs",
+        "path": "./themes/selenized-white-color-theme.json"
+      }
+    ]
+  }
+}

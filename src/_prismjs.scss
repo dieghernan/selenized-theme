@@ -1,0 +1,91 @@
+
+@import "_vars.scss";
+
+code[class*="language-"],
+pre[class*="language-"] 
+{
+  color: $foreground;
+  background: $background;
+  text-shadow: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+
+pre[class*="language-"] 
+{
+  background: $background;
+  border-radius: 0.5em;
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+  height: auto;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] 
+{
+  background: $background;
+}
+
+
+.token.atrule{color: $keyword_control_at-rule;}
+.token.attr-name,{color: $entity_other_attribute-name_html;}
+.token.attr-value{color: $string_html;}
+.token.blockquote.punctuation {color: $markup_quote;}
+.token.bold{color: $markup_bold; font-weight: bold;}
+.token.boolean{color: $constant_language;}
+.token.builtin{color: $constant_other;}
+.token.cdata{color: $comment;}
+.token.char{color: $string;}
+.token.class-name{color: $entity_name;}
+.token.class {color: $support_type_property-name;}
+.token.code, .token.code.keyword {color: $markup_raw;}
+.token.comment{color: $comment;}
+.token.constant{color: $constant_language;}
+.token.content{color: $variable_other;}
+.token.directive{color: $keyword_other_directive;}
+.token.doctype{color: $meta_doctype;}
+.token.entity{color: $string_interpolated;}
+.token.function{color: $entity_name;}
+.token.id {color: $entity_other_attribute-name_id;}
+.token.important{color: $keyword_other_important; font-weight: bold;}
+.token.italic{color: $markup_italic; font-style: italic;}
+.token.keyword.null{color: $constant_language;}
+.token.keyword{color: $keyword_control;}
+.token.namespace{color: $entity_name_type;}
+.token.number{color: $constant_numeric;}
+.token.operator{color: $keyword_operator;}
+.token.prolog{color: $comment;}
+.token.property{color: $support_type;}
+.token.punctuation{color: $punctuation_definition;}
+.token.regex{color: $string_regexp;}
+.token.selector{color: $entity_name_tag_css;}
+.token.string{color: $string;}
+.token.tag{color: $entity_name_tag;}
+.token.title{color: $markup_heading;}
+.token.variable{color: $variable;}
+
+code[class="language-css"] {color: $entity_other_attribute-name;}
+code[class="language-scss"] {color: $entity_other_attribute-name;}
+code[class="language-yaml"] {color: $string;}
+
+.language-scss, .language-css {
+  .token.variable{color: $variable_other;}
+}
+
+.language-yaml {color: $string;}

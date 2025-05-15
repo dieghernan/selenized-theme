@@ -1,0 +1,249 @@
+
+// Purpose: Translate a tmTheme into a Pygments css suitable for Jekyll pages
+// Howto: Just read the SASS and use the scope values as SASS variables:
+//e.g: 			<key>scope</key>
+//			<string>constant.language</string>
+//			<key>settings</key>
+//			<dict>
+//				<key>foreground</key>
+//				<string>#bd93f9</string>
+// Would be: 
+// $constant_language: #bd93f9
+//
+// Limitations:
+//  - Support only foreground colors. background colors should be set manually
+//  - Similarly, bolds and italics should be added manually, e.g.
+//
+// .foo {
+//    font-weight: bold;
+//      font-style: italic;
+//      background-color: pink;
+// }
+  
+@import "_vars.scss";
+
+
+// Not mapped Pygment classes, we don't provide special styles here
+// but can be easily added as:
+// .highlight .esc {color: myColor;}
+// Pygment css class -> Description
+// .esc -> Escape
+// .g   -> Generic (A generic, unstyled token. Normally not used)
+// .gd  -> Generic.Deleted (Marks the token value as deleted)
+// .gi  -> Generic.Inserted (Marks the token value as inserted)
+// .go  -> Generic.Output (Marks the token value as program output)
+// .gp  -> Generic.Prompt (Marks the token value as command prompt)
+// .hll -> High-lighted Line
+// .kr  -> Keyword.Reserved (For reserved keywords)
+// .l   -> Literal (For any literal if not further defined)
+// .ld  -> Literal.Date (for date literals)
+// .n   -> Name (For any name (variable names, function names, classes))
+// .nx  -> Name.Other (Other names. Normally unused.)
+// .x   -> Other (special token for data not matched by a parser (e.g. HTML markup in PHP code))
+// .sa  -> String.Affix (Token type for affixes)
+// .sc  -> String.Char (Token type for single characters (e.g. Java, C).)
+// .sd  -> String.Doc (Token type for documentation strings)
+// .w   -> Whitespace (for whitespace)
+
+
+// Styles
+
+/* Overall */
+ .highlight table td {padding: 5px;}
+ .highlight table pre {margin: 0;}
+ .highlight pre {background: $background; color: $foreground;}
+ .highlight .hll { background-color: $highlight; }
+
+
+
+// Classes
+/* Comments */
+.highlight {
+  // Scope: comments
+  .c   {color: $comment;} //Comment
+  .cp  {color: $comment;} //Comment.Preproc
+  .cpf {color: $comment;} //Comment.PreprocFile
+
+  // Scope: comments.block
+  .cm  {color: $comment_block;} //Comment.Multiline
+
+  // Scope: comments.line
+  .c1  {color: $comment_line;} //Comment.Single
+  .cs  {color: $comment_line;} //Comment.Special
+
+  // Scope: comments.line.number-sign
+  .ch  {color: $comment_line_number-sign;} //Comment.Hashbang
+}
+
+/* Constants */
+.highlight {
+  // Scope: constant.character.escape
+  .se  {color: $constant_character_escape;} //String.Escape
+
+  // Scope: constant.language
+  .kc  {color: $constant_language;} //Keyword.Constant
+
+  // Scope: constant.other
+  .no  {color: $constant_other;} //Name.Constant
+  .ss  {color: $constant_other_symbol;} //String.Symbol
+}
+
+/* Numbers */
+.highlight {
+  // Scope: constant.numeric and children
+  .m   {color: $constant_numeric;} //Number
+  .mb  {color: $constant_numeric;} //Number.Bin
+  .mh  {color: $constant_numeric;} //Number.Hex
+  .mo  {color: $constant_numeric;} //Number.Oct
+  .mf  {color: $constant_numeric_float;} //Number.Float
+  .mi  {color: $constant_numeric_integer;} //Number.Integer
+  .il  {color: $constant_numeric_integer;} //Number.Integer.Long
+}
+
+/* Entities */
+.highlight {
+  // Scope: entity.name
+  .nc {color: $entity_name_class;} //Name.Class
+  .nd {color: $entity_name;} //Name.Decorator
+  .ne {color: $entity_name;} //Name.Entity
+  .nf {color: $entity_name;} //Name.Function
+  .py {color: $entity_name;} //Name.Property
+
+  .nt {color: $entity_name_tag;} //Name.Tag
+  .nn {color: $entity_name_type;} //Name.Namespace
+
+  // Scope: entity.other
+  .na {color: $entity_other_attribute-name;} //Name.Attribute
+}
+// Some specific things
+.language-yaml .highlight {
+  .kt {color: $entity_name_tag;} 
+} 
+.language-css .highlight, .language-scss .highlight {
+  .nt, .nd {color: $entity_name_tag_css;} // Selectors in CSS
+  .nf {color: $entity_other_attribute-name_id;} // IDs in CSS
+  .n {color: $entity_other_attribute-name;}
+} 
+.language-html .highlight {
+  .na, {color: $entity_other_attribute-name_html;}
+}
+/* Invalid */
+.highlight {
+  // Scope: Invalid
+  .err {color: $invalid;} //Error
+  .gr  {color: $invalid;} //Generic.Error
+  .ne  {color: $invalid;} //Name.Exception
+}
+
+/* Keywords */
+.highlight {
+  // Scope: keyword.control
+  .k  {color: $keyword_control;} //Keyword
+  .kn {color: $keyword_control_import;} //Keyword.Namespace
+
+  // Scope: keyword.operator
+  .o  {color: $keyword_operator;} //Operator
+  .ow {color: $keyword_operator;} //Operator.Word
+}
+
+.language-markdown .highlight {
+  .sb {color: $markup_raw;}
+}
+
+.language-css .highlight, .language-scss .highlight  {
+  .k {color: $keyword_control_at-rule;}
+  .cp {color: $keyword_other_important; font-weight: bold; font-style: normal;}
+}
+
+.language-yaml .highlight {
+  .nt {color: $keyword_other_directive; font-weight: bold; font-style: normal;}
+  .na {color: $keyword_control_at-rule;}
+}
+
+
+/* Markup */
+// We add italics, etc. on css
+.highlight {
+  // Scope: Subclasses of markup
+  .gs  {color: $markup_bold; font-weight: bold;} //Generic.Strong
+  .gh  {color: $markup_heading;} //Generic.Heading
+  .gu  {color: $markup_heading;} //Generic.Subheading
+  .ge  {color: $markup_italic; font-style: italic;} //Generic.Emph
+  .ges {font-weight: bold; font-style: italic;} //Generic.EmphStrong
+  .gt  {color: $markup_quote;} //Generic.Traceback
+
+}
+
+
+/* Meta */
+
+.language-html .highlight {
+  .cp {color: $meta_doctype; font-style: normal;} 
+}
+
+/* Punctuation */
+.highlight {
+  // Scope: punctuation.definition
+  .p  {color: $punctuation_definition;} //Punctuation
+  .pm {color: $punctuation_definition;} //Punctuation.Marker
+  .dl {color: $punctuation_definition;} //String.Delimiter
+  .sh {color: $punctuation_definition;} //String.Heredoc
+}
+
+/* Storage */
+.highlight {
+  // Scope: storage.type
+  .kd {color: $storage_type;} //Keyword.Declaration
+  .kt {color: $storage_type;} //Keyword.Type
+}
+
+/* String */
+.highlight {
+  // Scope: string
+  .s  {color: $string;} //String
+
+  // Scope: string.quoted
+  .sb {color: $string_quoted;} //String.Backtick
+  .s1 {color: $string_quoted_single;} //String.Single
+  .s2 {color: $string_quoted_double;} //String.Double
+  .sx {color: $string_quoted_other;} //String.Other
+
+  // Scope: string.interpolated
+  .si {color: $string_interpolated;} //String.Interpol
+
+  // Scope: string.regexp
+  .sr {color: $string_regexp;} //String.Regex
+}
+
+.language-html .highlight {
+  .s {color: $string_html;} 
+}
+
+/* Support */
+.highlight {
+  // Scope: support
+  .nb {color: $support;} //Name.Builtin
+  .bp {color: $support;} //Name.Builtin.Pseudo
+
+  // Scope: support.constant
+  .fm {color: $support_constant;} //Name.Function.Magic
+  .vm {color: $support_constant;} //Name.Variable.Magic
+
+  .nl {color: $support_type;} //Name.Label
+}
+
+.language-css .highlight, .language-scss .highlight {
+  .nc, .nn {color: $support_type_property-name;} // Name.Class
+} 
+
+/* Variable */
+.highlight {
+  .vi {color: $variable;} //Name.Variable.Instance
+
+  .kp {color: $variable_language;} //Keyword.Pseudo
+
+  // Scope: variable.other
+  .nv {color: $variable_other;} // Name.Variable
+  .vc {color: $variable_other;} // Name.Variable.Class
+  .vg {color: $variable_other;} // Name.Variable.Global
+}

@@ -1,0 +1,76 @@
+
+@import "_vars.scss";
+
+pre code.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em
+}
+code.hljs {
+  padding: 3px 5px
+}
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  color: $foreground;
+  background: $background;
+}
+
+
+.hljs-keyword {color: $keyword_control;}
+.hljs-built_in {color: $entity_name};
+.hljs-type {color: $entity_name;}
+.hljs-literal {color: $constant_language;}
+.hljs-number {color: $constant_numeric;}
+.hljs-operator {color: $keyword_operator;}
+.hljs-punctuation {color: $punctuation_definition;}
+.hljs-property {color: $support_constant;}
+.hljs-regexp {color: $string_regexp;}
+.hljs-string {color: $string;}
+.hljs-char.escape_ {color: $constant_character_escape;}
+.hljs-subst {color: $foreground;}
+.hljs-symbol {color: $constant_other_symbol;}
+.hljs-class {color: $entity_name;}
+.hljs-variable {color: $variable;}
+.hljs-variable.language_ {color: $variable_language;}
+.hljs-variable.constant_ {color: $variable_language;}
+.hljs-title {color: $entity_name;}
+.hljs-comment {color: $comment;}
+.hljs-meta {color: $keyword_other_important; font-weight: bold;}
+.hljs-section {color: $markup_heading;}
+.hljs-name {color: $entity_name_tag;}
+.hljs-attr {color: $entity_other_attribute-name_html;}
+.hljs-attribute {color: $support_type;}
+.hljs-code {color: $markup_raw;}
+.hljs-strong {color: $markup_bold; font-weight: bold;}
+.hljs-emphasis {color: $markup_italic; font-style: italic;}
+.hljs-selector-id {color: $entity_other_attribute-name_id};
+.hljs-quote {color:$markup_quote;}
+.hljs-selector-class {color: $support_type_property-name;}
+.hljs-selector-tag, .hljs-selector-attr, .hljs-selector-pseudo {
+  color: $entity_name_tag_css;
+}
+.hljs-deletion {color: $invalid;}
+
+.language-html .hljs-string {color: $string_html;}
+.language-css.hljs, .language-scss.hljs {color: $entity_other_attribute-name;} 
+.language-scss, .language-css {
+  .hljs-variable{color: $variable_other;}
+  .hljs-keyword{color: $keyword_control_at-rule;}
+}
+
+.language-yaml {
+  .hljs-attr {color: $keyword_control_at-rule;}
+  .hljs-type {color: $entity_name_tag;}
+}
+
+.language-yaml {
+  .hljs-attr {color: $keyword_control_at-rule;}
+  .hljs-type {color: $entity_name_tag;}
+}
+
+.language-json {
+  .hljs-attr {color: $support_type;}
+}

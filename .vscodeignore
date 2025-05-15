@@ -1,0 +1,17 @@
+.vscode/**
+.vscode-test/**
+.gitignore
+vsc-extension-quickstart.md
+src/**
+extras/**
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+*.Rproj
+.github/**
+static/*.svg
+static/banner*
+static/screenshot*
+static/*.gpl
+.imgbotconfig

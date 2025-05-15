@@ -1,0 +1,53 @@
+scope,name
+foreground,Base color
+background,Background color
+lineHighlight,Line Highlight on GUI
+comment,Any comments
+comment.block,"Multi-line comments /* … */,<- … -->"
+comment.line,Line comments
+comment.line.number-sign,Others
+constant.character.escape,Escape sequences
+constant.language,"Special constants like true, false,nil"
+constant.numeric,Any number
+constant.numeric.float,Floating number
+constant.numeric.integer,Integers
+constant.other,"Any other constants, e.g. colors in CSS"
+constant.other.symbol,Symbols
+entity.name,Larger entity
+entity.name.class,Class Name
+entity.name.tag,Tag name
+entity.name.tag.css,Tag name for CSS/SCSS
+entity.name.type,Type declaration or class
+entity.other.attribute-name,Name of an attribute (mainly in tags)
+entity.other.attribute-name.id,ID of an attribute
+entity.other.attribute-name.html,Name of an attribute (mainly in HTML)
+invalid,Invalid
+keyword.control,Related to flow control
+keyword.control.at-rule,@media in css
+keyword.control.import,Imports in some languages
+keyword.operator,Operators can be textual (e.g. or) or be characters
+keyword.other.important,Important things
+keyword.other.directive,YAML directives
+markup.bold,Bold text
+markup.heading,Section header
+markup.italic,Italic text
+markup.quote,Markup quotations
+markup.raw,Markup raw code
+meta.doctype,For DOCTYPE in HTML
+punctuation.definition,Punctuations
+storage.type,"Type of something, class, function, int, var, etc."
+string,Strings
+string.interpolated,"Strings which are ""evaluated"""
+string.quoted,Quoted strings
+string.quoted.single,Single quoted strings
+string.quoted.double,Double quoted strings
+string.quoted.other,Other types of quoting
+string.regexp,Regular expressions
+string.html,Strings in html
+support,Things provided by a framework or library
+support.constant,Constants (magic values) provided by the framework/library
+support.type,Types provided by the framework/library
+support.type.property-name,REVIEW! Types provided by the framework
+variable,Variables
+variable.language,"Reserved language variables like this,super,self, etc."
+variable.other,Other variables

@@ -1,0 +1,89 @@
+/*  selenized.black theme author Diego H <https://github.com/dieghernan/> */
+/* Source: https://github.com/dieghernan/pretty-themes */
+pre code.hljs { display: block; overflow-x: auto; padding: 1em; }
+
+code.hljs { padding: 3px 5px; }
+
+.hljs { display: block; overflow-x: auto; padding: 0.5em; color: #B9B9B9; background: #181818; }
+
+.hljs-keyword { color: #70B433; }
+
+.hljs-built_in { color: #368AEB; }
+
+.hljs-type { color: #368AEB; }
+
+.hljs-literal { color: #3FC5B7; }
+
+.hljs-number { color: #3FC5B7; }
+
+.hljs-operator { color: #70B433; }
+
+.hljs-punctuation { color: #B9B9B9; }
+
+.hljs-property { color: #368AEB; }
+
+.hljs-regexp { color: #3FC5B7; }
+
+.hljs-string { color: #3FC5B7; }
+
+.hljs-char.escape_ { color: #ED4A46; }
+
+.hljs-subst { color: #B9B9B9; }
+
+.hljs-symbol { color: #B9B9B9; }
+
+.hljs-class { color: #368AEB; }
+
+.hljs-variable { color: #B9B9B9; }
+
+.hljs-variable.language_ { color: #ED4A46; }
+
+.hljs-variable.constant_ { color: #ED4A46; }
+
+.hljs-title { color: #368AEB; }
+
+.hljs-comment { color: #777777; }
+
+.hljs-meta { color: #70B433; font-weight: bold; }
+
+.hljs-section { color: #EFC541; }
+
+.hljs-name { color: #368AEB; }
+
+.hljs-attr { color: #70B433; }
+
+.hljs-attribute { color: #DBB32D; }
+
+.hljs-code { color: #368AEB; }
+
+.hljs-strong { color: #B9B9B9; font-weight: bold; }
+
+.hljs-emphasis { color: #B9B9B9; font-style: italic; }
+
+.hljs-selector-id { color: #70B433; }
+
+.hljs-quote { color: #B9B9B9; }
+
+.hljs-selector-class { color: #368AEB; }
+
+.hljs-selector-tag, .hljs-selector-attr, .hljs-selector-pseudo { color: #70B433; }
+
+.hljs-deletion { color: #FF5E56; }
+
+.language-html .hljs-string { color: #3FC5B7; }
+
+.language-css.hljs, .language-scss.hljs { color: #368AEB; }
+
+.language-scss .hljs-variable, .language-css .hljs-variable { color: #E67F43; }
+
+.language-scss .hljs-keyword, .language-css .hljs-keyword { color: #70B433; }
+
+.language-yaml .hljs-attr { color: #70B433; }
+
+.language-yaml .hljs-type { color: #368AEB; }
+
+.language-yaml .hljs-attr { color: #70B433; }
+
+.language-yaml .hljs-type { color: #368AEB; }
+
+.language-json .hljs-attr { color: #DBB32D; }

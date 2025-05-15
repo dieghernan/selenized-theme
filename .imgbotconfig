@@ -1,0 +1,7 @@
+{
+    "ignoredFiles": [
+        "*.svg"
+    ],
+    "compressWiki": "true",
+    "aggressiveCompression": "true"
+}
