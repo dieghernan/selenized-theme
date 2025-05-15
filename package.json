@@ -35,8 +35,8 @@
   ],
   "icon": "static/icon.png",
   "galleryBanner": {
-    "color": "#FBF3DB",
-    "theme": "light"
+    "color": "#103C48",
+    "theme": "dark"
   },
   "badges": [
     {

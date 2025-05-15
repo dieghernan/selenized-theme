@@ -1,5 +1,8 @@
 # Selenized Themes
 
+[![Preview in
+vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/editor/theme/dieghernan.selenized-theme/Selenized%20Dark%20Theme)
+
 ![Selenized
 Banner](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/static/banner.png)
 
@@ -53,6 +56,9 @@ To install:
 Alternatively, press `CMD + Shift + P`, type `> color theme`, and choose
 `Selenized Dark Theme` or any other variant.
 
+See also Selenized Themes in the [VisualStudio 
+Marketplace](https://marketplace.visualstudio.com/items?itemName=dieghernan.selenized-theme).
+
 ## Want More?
 
 The [main repository](https://github.com/dieghernan/selenized-theme) also
@@ -60,8 +66,8 @@ includes **consistent versions** of this theme in the [`extras`
 folder](https://github.com/dieghernan/selenized-theme/tree/main/extras) for the
 following editors and syntax highlighting libraries:
 
--   RStudio
--   TextMate/Sublime
--   Pygments (compatible with Jekyll static site generator)
--   highlight.js
--   Prism.js
+-   **RStudio**
+-   *+TextMate/Sublime**
+-   **Pygments** (compatible with **Jekyll** static site generator)
+-   **highlight.js**
+-   **Prism.js**
