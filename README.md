@@ -7,10 +7,11 @@ vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://
 Banner](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/static/banner.png)
 
 Dark and light syntax themes with green accents inspired by
-[Selenized](https://github.com/jan-warchol/selenized/tree/master) by Jan Warchoł.
+[Selenized](https://github.com/jan-warchol/selenized/tree/master) by Jan
+Warchoł.
 
-**Selenized** is a redesign of [Solarized](https://ethanschoonover.com/solarized/),
-featuring:
+**Selenized** is a redesign of
+[Solarized](https://ethanschoonover.com/solarized/), featuring:
 
 -   Higher contrast and improved lightness, thanks to fine-tuned color palettes.
 -   Consistent accent colors.
@@ -58,7 +59,7 @@ To install:
 Alternatively, press `CMD + Shift + P`, type `> color theme`, and choose
 `Selenized Dark Theme` or any other variant.
 
-See also Selenized Themes in the [VisualStudio 
+See also Selenized Themes in the [VisualStudio
 Marketplace](https://marketplace.visualstudio.com/items?itemName=dieghernan.selenized-theme).
 
 ## Want More?
@@ -69,7 +70,7 @@ folder](https://github.com/dieghernan/selenized-theme/tree/main/extras) for the
 following editors and syntax highlighting libraries:
 
 -   **RStudio**
--   *+TextMate/Sublime**
+-   **TextMate/Sublime**
 -   **Pygments** (compatible with **Jekyll** static site generator)
 -   **highlight.js**
 -   **Prism.js**
