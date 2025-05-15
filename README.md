@@ -6,9 +6,11 @@ vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://
 ![Selenized
 Banner](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/static/banner.png)
 
-A *dark* syntax theme with green accents inspired by
-[Selenized](https://github.com/jan-warchol/selenized/tree/master) by Jan
-Warchol. Selenized is a redesign of Solarized, featuring:
+Dark and light syntax themes with green accents inspired by
+[Selenized](https://github.com/jan-warchol/selenized/tree/master) by Jan Warchoł.
+
+**Selenized** is a redesign of [Solarized](https://ethanschoonover.com/solarized/),
+featuring:
 
 -   Higher contrast and improved lightness, thanks to fine-tuned color palettes.
 -   Consistent accent colors.
