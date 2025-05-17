@@ -28,7 +28,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      inkscape:zoom="0.97641503"
-     inkscape:cx="149.52658"
+     inkscape:cx="150.55073"
      inkscape:cy="274.98553"
      inkscape:window-width="1920"
      inkscape:window-height="974"
@@ -2491,13 +2491,7 @@
          cx="256"
          cy="255.99998"
          r="276.75677"
-         inkscape:label="bg" /></clipPath></defs><circle
-     style="fill:#103c48;stroke:#000000;stroke-width:0"
-     id="path109"
-     cx="256"
-     cy="256"
-     r="256"
-     inkscape:label="bg" /><g
+         inkscape:label="bg" /></clipPath></defs><g
      id="layer1-4"
      inkscape:label="moon_icon"
      clip-path="url(#clipPath110)"
