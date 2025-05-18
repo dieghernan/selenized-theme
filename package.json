@@ -4,7 +4,7 @@
   "description": "VS Code themes based on Selenized by Jan Warchoł",
   "publisher": "dieghernan",
   "license": "MIT",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "maintainers": [
     "dieghernan"
   ],
@@ -16,7 +16,7 @@
     "url": "https://github.com/dieghernan/selenized-theme/issues"
   },
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.95.0"
   },
   "categories": [
     "Themes"
