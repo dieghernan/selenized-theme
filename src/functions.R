@@ -1,4 +1,7 @@
 read_tmtheme <- function(input) {
+  options(dplyr.summarise.inform = FALSE)
+
+
   require(xml2)
   require(tidyverse)
 
@@ -6,7 +9,36 @@ read_tmtheme <- function(input) {
 
   tmtheme <- read_xml(input)
 
-  tm_lst <- tmtheme |> as_list()
+  tmclean <- tmtheme |>
+    as_list() |>
+    rapply(function(x) {
+      x <- trimws(x)
+
+      # Guess if color and convert
+      res <- try(col2rgb(x), silent = TRUE)
+
+      res
+      if (!inherits(res, "try-error")) {
+        x <- rgb(t(res), maxColorValue = 255) |> toupper()
+      }
+
+
+      x <- gsub("  ", " ", x)
+      x <- gsub("  ", " ", x)
+      x <- gsub("  ", " ", x)
+      x <- gsub("  ", " ", x)
+      x <- gsub("  ", " ", x)
+      x <- trimws(x)
+      x
+    }, how = "list")
+
+  # Redo and clean XML
+  xml2::as_xml_document(tmclean) |>
+    xml2::write_xml(input)
+
+  # Read back
+  tm_lst <- read_xml(input) |> as_list()
+
 
   # Metadata
   meta_l <- tm_lst$plist$dict
@@ -50,7 +82,6 @@ read_tmtheme <- function(input) {
     value = vl
   )
 
-  x <- array[2][[1]]
   specs <- lapply(array[topl], function(x) {
     # No spec
     thisloop <- x
@@ -105,13 +136,15 @@ read_tmtheme <- function(input) {
   scopes <- specs$scope
 
   newsc <- lapply(scopes, function(x) {
-    this <- str_split(x, " |,", simplify = TRUE) |> unlist()
+    this <- str_split(x, ",", simplify = TRUE) |> unlist()
     this[this != ""]
   })
   specs$scope <- newsc
 
   specs_end <- specs |>
-    unnest(cols = scope)
+    unnest(cols = scope) %>%
+    distinct()
+
   specs_end$section <- "Scopes"
 
   # Final df
@@ -126,14 +159,122 @@ read_tmtheme <- function(input) {
   )
 
   end <- bind_rows(template, meta_df, top_df, specs_end)
-  end[end$name != "Delete", ]
+  end <- end[end$name != "Delete", ]
   alln <- names(end)
   end <- end %>%
     mutate(across(all_of(alln), str_squish)) |>
     distinct()
-  end$foreground <- toupper(end$foreground)
-  end$background <- toupper(end$background)
+  end$foreground <- end$foreground
+  end$background <- end$background
 
+
+  # Now re-create the theme with clean interface
+  # Settings
+  set <- end |>
+    filter(section == "Top-level config") |>
+    select(name, value)
+
+  ll <- NULL
+
+  for (i in seq_len(nrow(set))) {
+    this <- set[i, ]
+    tm <- this$name |> as.character()
+    col <- this$value |> as.character()
+    ll <- c(ll, list(key = list(tm), string = list(col)))
+  }
+
+  # Fill the template
+  setting <- list(
+    dict = list(
+      key = list("settings"),
+      dict = ll
+    )
+  )
+
+  # Now get the rest of params (token colors)
+  tok <- end |>
+    filter(section == "Scopes") |>
+    select(-section, -value)
+
+  tok$order <- seq_len(nrow(tok))
+
+  tok_g <- tok |>
+    group_by(name, foreground, background, fontStyle) |>
+    summarise(minr = min(order), scope = paste0(scope, collapse = ", ")) |>
+    arrange(minr) %>%
+    select(-minr)
+
+  ntok <- seq_len(nrow(tok_g))
+  i <- 1
+  for (i in ntok) {
+    this <- tok_g[i, ]
+    name <- unlist(this$name)
+    if (length(name) == 0) {
+      name <- ""
+    }
+    scope <- this$scope |>
+      strsplit(",") |>
+      unlist() |>
+      trimws() |>
+      sort() |>
+      paste0(collapse = ", ")
+    # message(i, " is ", scope)
+    # Settings are ok
+
+    onl <- list(
+      dict = list(
+        key = list("name"),
+        string = list(name),
+        key = list("scope"),
+        string = list(scope),
+        key = list("settings"),
+        dict = list()
+      )
+    )
+
+    dictt <- NULL
+    settts <- this[, c("foreground", "background", "fontStyle")] |>
+      unlist() |>
+      as.list()
+
+    settts <- settts[!is.na(settts)]
+
+
+
+    if ("foreground" %in% names(settts)) {
+      dictt <- c(dictt, list(
+        key = list("foreground"),
+        string = settts["foreground"] |> unname() |> paste0(collapse = " ") |> list()
+      ))
+    }
+    if ("background" %in% names(settts)) {
+      dictt <- c(dictt, list(
+        key = list("background"),
+        string = settts["background"] |> unname() |> paste0(collapse = " ") |> list()
+      ))
+    }
+    if ("fontStyle" %in% names(settts)) {
+      dictt <- c(dictt, list(
+        key = list("fontStyle"),
+        string = settts["fontStyle"] |> unname() |> paste0(collapse = " ") |> list()
+      ))
+    }
+
+    if (!is.null(dictt)) {
+      onl$dict$dict <- dictt
+
+      setting <- c(setting, onl)
+    }
+  }
+
+  tm_lst$plist$dict$array <- setting
+
+  # Redo and clean XML
+  xml2::as_xml_document(tm_lst) |>
+    xml2::write_xml(input)
+
+
+  # Output
   end
 }
 
@@ -214,6 +355,8 @@ tmtheme2vscode <- function(tminput, output) {
 
   tokencols$index <- seq_len(nrow(tokencols))
   tok_g <- tokencols |>
+    group_by(name) |>
+    arrange(name, scope) |>
     group_by(name, foreground, background, fontStyle) |>
     summarise(sc = paste0(scope, collapse = ", "), minr = min(index)) |>
     arrange(minr)

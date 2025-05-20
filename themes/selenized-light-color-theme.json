@@ -49,13 +49,13 @@
     {
       "name": "String interpolation and escaping",
       "scope": [
-        "string.constant.character.escape",
-        "string.interpolated.dollar.shell",
-        "string.interpolated.backtick.shell",
-        "constant.character.format",
         "constant.character.escape",
+        "constant.character.format",
+        "punctuation.definition.template-expression",
         "punctuation.section.embedded",
-        "punctuation.definition.template-expression"
+        "string.constant.character.escape",
+        "string.interpolated.backtick.shell",
+        "string.interpolated.dollar.shell"
       ],
       "settings": {
         "foreground": "#D2212D"
@@ -72,9 +72,9 @@
       "name": "Constant",
       "scope": [
         "constant",
-        "variable.other.constant",
+        "constant.language",
         "constant.numeric",
-        "constant.language"
+        "variable.other.constant"
       ],
       "settings": {
         "foreground": "#009C8F"
@@ -101,8 +101,8 @@
       "name": "Function and class defs",
       "scope": [
         "storage.type",
-        "storage.type.function",
-        "storage.type.class"
+        "storage.type.class",
+        "storage.type.function"
       ],
       "settings": {
         "foreground": "#489100"
@@ -111,8 +111,8 @@
     {
       "name": "Imports",
       "scope": [
-        "keyword.control.import",
         "keyword.control.directive.include",
+        "keyword.control.import",
         "keyword.other.import"
       ],
       "settings": {
@@ -250,8 +250,8 @@
     {
       "name": "Shell variable interpolation",
       "scope": [
-        "variable.other.normal.shell",
         "variable.other.bracket.shell",
+        "variable.other.normal.shell",
         "variable.other.positional.shell"
       ],
       "settings": {
@@ -279,9 +279,9 @@
     {
       "name": "Markup Heading",
       "scope": [
+        "entity.name.section.markdown",
         "markup.heading",
-        "meta.tag",
-        "entity.name.section.markdown"
+        "meta.tag"
       ],
       "settings": {
         "foreground": "#A78300"
@@ -297,8 +297,8 @@
     {
       "name": "Markup Code Blocks",
       "scope": [
-        "markup.raw",
-        "markup.inline.raw"
+        "markup.inline.raw",
+        "markup.raw"
       ],
       "settings": {
         "foreground": "#0072D4"
