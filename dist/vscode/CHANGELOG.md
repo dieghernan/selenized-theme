@@ -1,7 +1,10 @@
+## v0.1.3
+
+-   Main repo is now a monorepo.
+
 ## v0.1.2
 
--   Also available in <https://open-vsx.org/>
-    [[Link]](https://open-vsx.org/extension/dieghernan/selenized-theme).
+-   Also available in <https://open-vsx.org/> [[Link]](https://open-vsx.org/extension/dieghernan/selenized-theme).
 
 ## v0.1.1
 

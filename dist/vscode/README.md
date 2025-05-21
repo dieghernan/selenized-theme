@@ -2,12 +2,9 @@
 
 ![Selenized Themes Banner](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/assets/banner.png)
 
-Dark and light syntax themes with green accents inspired by
-[Selenized](https://github.com/jan-warchol/selenized/tree/master) by Jan
-Warchoł.
+Dark and light syntax themes with green accents inspired by [Selenized](https://github.com/jan-warchol/selenized/) by Jan Warchoł.
 
-**Selenized** is a redesign of
-[Solarized](https://ethanschoonover.com/solarized/), featuring:
+**Selenized** is a redesign of [Solarized](https://ethanschoonover.com/solarized/), featuring:
 
 -   Higher contrast and improved lightness, thanks to fine-tuned color palettes.
 -   Consistent accent colors.
@@ -20,7 +17,7 @@ Warchoł.
         -   Light Theme
         -   White Theme
 
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 # Selenized Black Theme
 
@@ -38,7 +35,7 @@ Warchoł.
 
 ![White](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/assets/screenshot-white.png)
 
---------------------------------------------------------------------------------
+------------------------------------------------------------------------
 
 ## Installation
 
@@ -50,16 +47,11 @@ Warchoł.
     -   `Selenized Light Theme`
     -   `Selenized White Theme`
 
-Alternatively, press `CMD + Shift + P`, type `> color theme`, and choose
-`Selenized Dark Theme` or any other variant.
-
+Alternatively, press `CMD + Shift + P`, type `> color theme`, and choose `Selenized Dark Theme` or any other variant.
 
 ## Want More?
 
-The [main repository](https://github.com/dieghernan/selenized-theme) also
-includes **consistent versions** of this theme in the [`extras`
-folder](https://github.com/dieghernan/selenized-theme/tree/main/extras) for the
-following editors and syntax highlighting libraries:
+The [main repository](https://github.com/dieghernan/selenized-theme/) also includes **consistent versions** of this theme in the [`dist` folder](https://github.com/dieghernan/selenized-theme/tree/main/dist) for the following editors and syntax highlighting libraries:
 
 -   **RStudio**
 -   **TextMate/Sublime**

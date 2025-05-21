@@ -1,17 +1,12 @@
 # Selenized Themes
 
-[![Preview in
-vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/editor/theme/dieghernan.selenized-theme/Selenized%20Dark%20Theme)
+[![Preview in vscode.dev](https://img.shields.io/badge/preview%20in-vscode.dev-blue)](https://vscode.dev/editor/theme/dieghernan.selenized-theme/Selenized%20Dark%20Theme)
 
-![Selenized Themes
-Banner](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/assets/banner.png)
+![Selenized Themes Banner](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/assets/banner.png)
 
-Dark and light syntax themes with green accents inspired by
-[Selenized](https://github.com/jan-warchol/selenized/tree/master) by Jan
-Warchoł.
+Dark and light syntax themes with green accents inspired by [Selenized](https://github.com/jan-warchol/selenized/) by Jan Warchoł.
 
-**Selenized** is a redesign of
-[Solarized](https://ethanschoonover.com/solarized/), featuring:
+**Selenized** is a redesign of [Solarized](https://ethanschoonover.com/solarized/), featuring:
 
 -   Higher contrast and improved lightness, thanks to fine-tuned color palettes.
 -   Consistent accent colors.
@@ -24,11 +19,9 @@ Warchoł.
         -   Light Theme
         -   White Theme
 
-
 Themes available for:
 
--   **Visual Studio Code** (view in [Visual Studio
-    Marketplace](https://marketplace.visualstudio.com/items?itemName=dieghernan.selenized-theme))
+-   **Visual Studio Code** (view in [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dieghernan.selenized-theme))
 -   **RStudio**
 -   **TextMate/Sublime**
 -   **Pygments** (compatible with the **Jekyll** static site generator)
@@ -52,8 +45,7 @@ Themes available for:
 │...
 ```
 
---------------------------------------------------------------------------------
-
+------------------------------------------------------------------------
 
 # Selenized Black Theme
 
@@ -70,4 +62,3 @@ Themes available for:
 # Selenized White Theme
 
 ![White](https://raw.githubusercontent.com/dieghernan/selenized-theme/main/assets/screenshot-white.png)
-
