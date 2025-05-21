@@ -2,11 +2,7 @@
 
 library(tidyverse)
 library(jsonlite)
-tminput <- "./extras/textmate/Selenized Light.tmTheme"
-
-# Beautify tmTheme
-xml2::read_xml(tminput) %>%
-  xml2::write_xml(tminput)
+tminput <- "./dist/tmtheme/Selenized Light.tmTheme"
 
 source("src/functions.R")
 
@@ -14,12 +10,14 @@ source("src/functions.R")
 output <- basename(tminput) %>%
   str_replace_all(".tmTheme", "-color-theme.json") %>%
   str_replace_all(" ", "-") %>%
-  file.path("themes", .) |>
+  file.path("dist", "vscode", "themes", .) |>
   tolower()
 
 output
 
 tmtheme2vscode(tminput, output)
+
+
 
 # Modify name for store
 js <- read_json(output)
@@ -33,10 +31,11 @@ them_type <- read_json(output)$type
 
 message(basename(tminput), " is ", them_type)
 
+
 # RStudio Theme ----
 
 # Create a first compilation
-outdir <- "./extras/rstudio"
+outdir <- "./dist/rstudio"
 rtheme_out <- tools::file_path_sans_ext(tminput) |>
   basename() |>
   paste0(".rstheme") %>%

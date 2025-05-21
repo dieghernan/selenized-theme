@@ -50,7 +50,7 @@ ncols <- seq_len(nrow(tb))
 # 1. tmTheme distros ----
 
 ## Templates based on selenized.dark -----
-input_tm <- "extras/textmate/Selenized Dark.tmTheme"
+input_tm <- "dist/tmtheme/Selenized Dark.tmTheme"
 tm_lines <- readLines(input_tm)
 
 ### Black ----
