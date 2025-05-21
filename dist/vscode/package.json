@@ -1,7 +1,7 @@
 {
   "name": "selenized-theme",
   "displayName": "Selenized Themes",
-  "description": "VS Code themes based on Selenized by Jan Warchoł",
+  "description": "Themes based on Selenized by Jan Warchoł",
   "publisher": "dieghernan",
   "license": "MIT",
   "version": "0.1.2",
@@ -33,7 +33,7 @@
     "black-theme",
     "solarized"
   ],
-  "icon": "static/icon.png",
+  "icon": "icon.png",
   "galleryBanner": {
     "color": "#103C48",
     "theme": "dark"

@@ -10,8 +10,9 @@ extras/**
 .Ruserdata
 *.Rproj
 .github/**
-static/*.svg
-static/banner*
-static/screenshot*
-static/*.gpl
+assets/*.svg
+assets/banner*
+assets/screenshot*
+assets/*.gpl
 .imgbotconfig
+test/**

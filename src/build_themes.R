@@ -9,6 +9,7 @@ src_styles <- list.files("src",
 )
 
 
+
 current <- rstudioapi::getThemeInfo()$editor
 for (s in src_styles) {
   source(s)
@@ -17,27 +18,29 @@ for (s in src_styles) {
 #  My choice
 rstudioapi::applyTheme(current)
 
-
 #  Register themes ----
 library(jsonlite)
 library(tidyverse)
 
 # Read produced vscode themes
-myvs <- list.files("./themes", full.names = TRUE)
+myvs <- list.files("./dist/vscode/themes", full.names = TRUE)
 
 the_df <- lapply(myvs, function(x) {
   js <- read_json(x)
   tibble::tibble(
     label = js$name,
-    uiTheme = ifelse(js$type == "light", "vs", "vs-dark"),
-    path = x
+    uiTheme = case_when(
+      str_detect(js$type, "hc") ~ js$type,
+      js$type == "light" ~ "vs",
+      TRUE ~ "vs-dark"
+    ),
+    path = file.path(".", "themes", basename(x))
   )
 }) %>%
   bind_rows() %>%
   mutate(ord = toupper(label)) |>
   arrange(ord) |>
   select(-ord)
-
 
 tm <- list()
 
@@ -56,10 +59,16 @@ toJSON(tm, pretty = TRUE)
 
 
 # Package json
-pk <- read_json("package.json")
+thepak <- "dist/vscode/package.json"
+
+pk <- read_json(thepak)
 pk$contributes$themes <- tm
 
-write_json(pk, "package.json", pretty = TRUE, auto_unbox = TRUE)
+write_json(pk, thepak, pretty = TRUE, auto_unbox = TRUE)
+
+file.copy("CHANGELOG.md", "dist/vscode", overwrite = TRUE)
+file.copy("LICENSE", "dist/vscode", overwrite = TRUE)
+file.copy("assets/icon.png", "dist/vscode", overwrite = TRUE)
 
 # Build css/scss distros ----
 
@@ -78,18 +87,18 @@ f <- all_pygments[1]
 for (f in all_pygments) {
   out_sass <- basename(f) %>%
     gsub("_|pygments", "", .) %>%
-    file.path("./extras", "pygments", .)
+    file.path("./dist", "pygments", .)
 
   out_css <- basename(out_sass) %>%
     gsub("_", "", .) |>
     tools::file_path_sans_ext() |>
     paste0(".css") %>%
-    file.path("./extras", "pygments", .)
+    file.path("./dist", "pygments", .)
 
   out_css_min <- basename(out_sass) %>%
     tools::file_path_sans_ext() |>
     paste0(".min.css") %>%
-    file.path("./extras", "pygments", .)
+    file.path("./dist", "pygments", .)
   in_f <- readLines(f)
 
 
@@ -120,18 +129,18 @@ f <- all_prism[1]
 for (f in all_prism) {
   out_sass <- basename(f) %>%
     gsub("_|prismjs", "", .) %>%
-    file.path("./extras", "prismjs", .)
+    file.path("./dist", "prismjs", .)
 
   out_css <- basename(out_sass) %>%
     gsub("_", "", .) |>
     tools::file_path_sans_ext() |>
     paste0(".css") %>%
-    file.path("./extras", "prismjs", .)
+    file.path("./dist", "prismjs", .)
 
   out_css_min <- basename(out_sass) %>%
     tools::file_path_sans_ext() |>
     paste0(".min.css") %>%
-    file.path("./extras", "prismjs", .)
+    file.path("./dist", "prismjs", .)
   in_f <- readLines(f)
 
 
@@ -160,18 +169,18 @@ f <- all_hljs[1]
 for (f in all_hljs) {
   out_sass <- basename(f) %>%
     gsub("_|hljs", "", .) %>%
-    file.path("./extras", "hljs", .)
+    file.path("./dist", "hljs", .)
 
   out_css <- basename(out_sass) %>%
     gsub("_", "", .) |>
     tools::file_path_sans_ext() |>
     paste0(".css") %>%
-    file.path("./extras", "hljs", .)
+    file.path("./dist", "hljs", .)
 
   out_css_min <- basename(out_sass) %>%
     tools::file_path_sans_ext() |>
     paste0(".min.css") %>%
-    file.path("./extras", "hljs", .)
+    file.path("./dist", "hljs", .)
   in_f <- readLines(f)
 
 

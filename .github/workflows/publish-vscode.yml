@@ -2,6 +2,7 @@ on:
   push:
     tags:
       - "*"
+  workflow_dispatch:
 
 name: Deploy Extension
 jobs:
@@ -12,16 +13,16 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npm install --package-lock-only # Create package lock
-      - run: npm ci
       - name: Publish to Open VSX Registry
         uses: HaaLeo/publish-vscode-extension@v2
         with:
           pat: ${{ secrets.OPEN_VSX_TOKEN }}
           skipDuplicate: true
+          packagePath: './dist/vscode'
       - name: Publish to Visual Studio Marketplace
         uses: HaaLeo/publish-vscode-extension@v2
         with:
           pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
           registryUrl: https://marketplace.visualstudio.com
           skipDuplicate: true
+          packagePath: './dist/vscode'
