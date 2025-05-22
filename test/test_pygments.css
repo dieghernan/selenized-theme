@@ -1,4 +1,7 @@
-/*  selenized.dark theme author Diego H <https://github.com/dieghernan/> */
+/* 
+ * selenized.dark theme
+ * author Diego H <https://github.com/dieghernan/>
+ */
 /* Source: https://github.com/dieghernan/selenized-theme */
 /* Overall */
 .highlight table td {
@@ -49,7 +52,7 @@
 
 /* Constants */
 .highlight .se {
-  color: #FA5750;
+  color: #ADBCBC;
 }
 
 .highlight .kc {

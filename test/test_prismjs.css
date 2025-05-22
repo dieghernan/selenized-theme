@@ -1,6 +1,10 @@
-/*  selenized.dark theme author Diego H <https://github.com/dieghernan/> */
+/* 
+ * selenized.dark theme
+ * author Diego H <https://github.com/dieghernan/>
+ */
 /* Source: https://github.com/dieghernan/selenized-theme */
-code[class*="language-"], pre[class*="language-"] {
+code[class*="language-"],
+pre[class*="language-"] {
   color: #ADBCBC;
   background: #103C48;
   text-shadow: none;
@@ -29,7 +33,8 @@ pre[class*="language-"] {
   height: auto;
 }
 
-:not(pre) > code[class*="language-"], pre[class*="language-"] {
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
   background: #103C48;
 }
 

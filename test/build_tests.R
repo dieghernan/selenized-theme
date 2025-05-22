@@ -1,15 +1,19 @@
-source("src/build_themes.R")
+# source("src/build_themes.R")
 
-theme <- "selenized.dark.scss"
+theme <- "selenized.dark"
 
-file.path("dist", "hljs", theme) |>
+paste0("_", theme, "_hljs.scss") %>%
+  file.path("src", "themes", .) |>
   readLines() |>
   sass::sass(cache = FALSE, output = "test/test_hljs.css")
 
-file.path("dist", "prismjs", theme) |>
+
+paste0("_", theme, "_prismjs.scss") %>%
+  file.path("src", "themes", .) |>
   readLines() |>
   sass::sass(cache = FALSE, output = "test/test_prismjs.css")
 
-file.path("dist", "pygments", theme) |>
+paste0("_", theme, "_pygments.scss") %>%
+  file.path("src", "themes", .) |>
   readLines() |>
   sass::sass(cache = FALSE, output = "test/test_pygments.css")
