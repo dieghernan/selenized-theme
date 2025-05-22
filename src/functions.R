@@ -341,6 +341,15 @@ tmtheme2vscode <- function(tminput, output) {
   names(col_l) <- colorss$name |> unlist()
   col_l <- as.list(col_l)
 
+  # If is hc then add rule
+  hc <- grepl("_hc_", ss, fixed = TRUE)
+
+  if (hc) {
+    col_l$contrastBorder <- fg
+    col_l$editor.selectionForeground <- accent
+  }
+
+
   # Blend and sort
   col_end <- modifyList(init, col_l)
 
@@ -604,15 +613,62 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
 
   # Add constant languages as well
   col2add <- tmcols_clean |>
-    filter(str_detect(tm, "constant.language") |
+    filter(str_detect(tm, "^constant.language") |
       tm == "constant") |>
     arrange(tm) |>
     slice_tail(n = 1) |>
     mutate(rstheme = ".ace_constant") |>
     select(rstheme, fg:fontstyle) |>
     bind_rows(col2add) |>
-    arrange(rstheme)
+    arrange(rstheme) |>
+    distinct()
 
+  # Add constant others
+  col2add <- tmcols_clean |>
+    filter(str_detect(tm, "^constant.other") |
+      tm == "constant") |>
+    arrange(tm) |>
+    slice_tail(n = 1) |>
+    mutate(rstheme = ".ace_constant.ace_other") |>
+    select(rstheme, fg:fontstyle) |>
+    bind_rows(col2add) |>
+    arrange(rstheme) |>
+    distinct()
+
+  # Add operator as well
+  col2add <- tmcols_clean |>
+    filter(str_detect(tm, "^keyword.operator") |
+      tm == "keyword.operator") |>
+    arrange(tm) |>
+    slice_tail(n = 1) |>
+    mutate(rstheme = ".ace_keyword.ace_operator") |>
+    select(rstheme, fg:fontstyle) |>
+    bind_rows(col2add) |>
+    arrange(rstheme) |>
+    distinct()
+
+  # Add href
+  col2add <- tmcols_clean |>
+    filter(str_detect(tm, "link")) |>
+    arrange(tm) |>
+    slice_tail(n = 1) |>
+    mutate(rstheme = ".ace_markup.ace_href") |>
+    select(rstheme, fg:fontstyle) |>
+    bind_rows(col2add) |>
+    arrange(rstheme) |>
+    distinct()
+
+  # Booleans
+  col2add <- tmcols_clean |>
+    filter(str_detect(tm, "^constant.language.boolean") |
+      tm == "constant.language") |>
+    arrange(tm) |>
+    slice_tail(n = 1) |>
+    mutate(rstheme = ".ace_constant.ace_language") |>
+    select(rstheme, fg:fontstyle) |>
+    bind_rows(col2add) |>
+    arrange(rstheme) |>
+    distinct()
 
 
 

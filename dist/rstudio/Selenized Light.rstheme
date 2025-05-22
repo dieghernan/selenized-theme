@@ -67,10 +67,6 @@
   color: #489100;
 }
 
-.ace_constant {
-  color: #009C8F;
-}
-
 .ace_constant.ace_language {
   color: #009C8F;
 }
@@ -79,31 +75,15 @@
   color: #009C8F;
 }
 
-.ace_constant.ace_character.ace_escape {
-  color: #D2212D;
-}
-
-.ace_support {
-  color: #0072D4;
-}
-
 .ace_support.ace_function {
   color: #0072D4;
 }
 
-.ace_support.ace_class {
-  color: #AD8900;
-}
-
 .ace_support.ace_type {
-  color: #AD8900;
+  color: #53676D;
 }
 
 .ace_storage {
-  color: #AD8900;
-}
-
-.ace_storage.ace_type {
   color: #489100;
 }
 
@@ -116,28 +96,24 @@
   color: #009C8F;
 }
 
+.ace_string.ace_regexp {
+  color: #009C8F;
+}
+
 .ace_comment {
   color: #909995;
 }
 
 .ace_variable {
-  color: #53676D;
-}
-
-.ace_variable.ace_language {
-  color: #D2212D;
-}
-
-.ace_variable.ace_parameter {
-  color: #53676D;
-}
-
-.ace_meta {
-  color: #53676D;
+  color: #0072D4;
 }
 
 .ace_meta.ace_tag {
-  color: #A78300;
+  color: #0072D4;
+}
+
+.ace_meta.ace_selector {
+  color: #489100;
 }
 
 .ace_entity.ace_name.ace_function {
@@ -145,6 +121,7 @@
 }
 
 .ace_markup.ace_heading {
+  font-weight: bold;
   color: #A78300;
 }
 
@@ -239,7 +216,7 @@
 }
 
 .xtermBlur {
-  filter: blur(1px);
+  filter: brightness(75%);
 }
 
 .xtermUnderline {
@@ -2384,9 +2361,13 @@
   background: linear-gradient(to left, #dc91dbbb 1px, #dc91db77 1px, #dc91db77);
 }
 
-/* Generated and tested in RStudio 2024.04.2+764.pro1 ("Chocolate Cosmos") */
+/* Generated and tested in RStudio 2025.05.0+496 ("Mariposa Orchid") */
 /* Rules from tmTheme */
 .ace_constant {
+  color: #489100;
+}
+
+.ace_constant.ace_language {
   color: #009C8F;
 }
 
@@ -2396,6 +2377,15 @@
 
 .ace_heading {
   color: #A78300;
+  font-weight: bold;
+}
+
+.ace_keyword.ace_operator {
+  color: #489100;
+}
+
+.ace_markup.ace_href {
+  color: #0072D4;
 }
 
 .ace_print-margin {
