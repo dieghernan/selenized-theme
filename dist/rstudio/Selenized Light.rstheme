@@ -2363,16 +2363,67 @@
 
 /* Generated and tested in RStudio 2025.05.0+496 ("Mariposa Orchid") */
 /* Rules from tmTheme */
-.ace_constant {
+.ace_cursor {
   color: #489100;
+}
+
+.ace_print-margin {
+  background: #E9E4D0;
+}
+
+.ace_comment {
+  color: #909995;
+}
+
+.ace_constant {
+  color: #009C8F;
 }
 
 .ace_constant.ace_language {
   color: #009C8F;
 }
 
-.ace_cursor {
+.ace_constant.ace_language.ace_boolean {
+  color: #009C8F;
+}
+
+.ace_constant.ace_language.ace_null {
+  color: #009C8F;
+}
+
+.ace_constant.ace_language.ace_undefined {
   color: #489100;
+}
+
+.ace_constant.ace_numeric {
+  color: #009C8F;
+}
+
+.ace_constant.ace_numeric.ace_yaml-version {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_entity {
+  color: #0072D4;
+}
+
+.ace_entity.ace_name {
+  color: #0072D4;
+}
+
+.ace_entity.ace_name.ace_function {
+  color: #0072D4;
+}
+
+.ace_entity.ace_other {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_entity.ace_other.ace_document {
+  color: #489100;
+  font-weight: bold;
 }
 
 .ace_heading {
@@ -2380,16 +2431,283 @@
   font-weight: bold;
 }
 
+.ace_invalid {
+  color: #CC1729;
+  font-weight: bold;
+}
+
+.ace_keyword {
+  color: #489100;
+}
+
+.ace_keyword.ace_control {
+  color: #489100;
+}
+
+.ace_keyword.ace_control.ace_at-rule {
+  color: #489100;
+}
+
 .ace_keyword.ace_operator {
   color: #489100;
+}
+
+.ace_keyword.ace_operator.ace_arithmetic {
+  color: #489100;
+}
+
+.ace_keyword.ace_operator.ace_assignment {
+  color: #489100;
+}
+
+.ace_keyword.ace_operator.ace_class {
+  color: #489100;
+}
+
+.ace_keyword.ace_operator.ace_comparison {
+  color: #489100;
+}
+
+.ace_keyword.ace_operator.ace_logical {
+  color: #489100;
+}
+
+.ace_keyword.ace_operator.ace_relational {
+  color: #489100;
+}
+
+.ace_keyword.ace_other {
+  color: #489100;
+}
+
+.ace_keyword.ace_other.ace_directive {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_keyword.ace_other.ace_important {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_markup {
+  color: #0072D4;
+}
+
+.ace_markup.ace_bold {
+  font-weight: bold;
+}
+
+.ace_markup.ace_heading {
+  color: #A78300;
+  font-weight: bold;
 }
 
 .ace_markup.ace_href {
   color: #0072D4;
 }
 
-.ace_print-margin {
-  background: #E9E4D0;
+.ace_markup.ace_inline {
+  color: #489100;
+}
+
+.ace_markup.ace_inline.ace_raw {
+  color: #489100;
+}
+
+.ace_markup.ace_italic {
+  font-style: italic;
+}
+
+.ace_markup.ace_raw {
+  color: #489100;
+}
+
+.ace_markup.ace_underline {
+  color: #0072D4;
+}
+
+.ace_markup.ace_underline.ace_link {
+  color: #0072D4;
+}
+
+.ace_meta {
+  color: #0072D4;
+}
+
+.ace_meta.ace_at-rule {
+  color: #489100;
+}
+
+.ace_meta.ace_directives {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_meta.ace_document {
+  color: #0072D4;
+}
+
+.ace_meta.ace_document.ace_yaml {
+  color: #0072D4;
+}
+
+.ace_meta.ace_embedded {
+  color: #C25D1E;
+}
+
+.ace_meta.ace_embedded.ace_line {
+  color: #C25D1E;
+}
+
+.ace_meta.ace_property-list {
+  color: #AD8900;
+}
+
+.ace_meta.ace_property-list.ace_css {
+  color: #0072D4;
+}
+
+.ace_meta.ace_selector {
+  color: #489100;
+}
+
+.ace_meta.ace_tag {
+  color: #0072D4;
+}
+
+.ace_punctuation {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_punctuation.ace_definition {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_punctuation.ace_definition.ace_alias {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_punctuation.ace_definition.ace_anchor {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_punctuation.ace_definition.ace_tag {
+  color: #53676D;
+}
+
+.ace_punctuation.ace_section {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_punctuation.ace_section.ace_embedded {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_punctuation.ace_separator {
+  color: #53676D;
+}
+
+.ace_source {
+  color: #0072D4;
+}
+
+.ace_source.ace_css keyword {
+  color: #0072D4;
+}
+
+.ace_source.ace_css keyword.ace_other {
+  color: #0072D4;
+}
+
+.ace_source.ace_css variable {
+  color: #C25D1E;
+}
+
+.ace_storage {
+  color: #489100;
+}
+
+.ace_storage.ace_modifier {
+  color: #0072D4;
+}
+
+.ace_storage.ace_modifier.ace_import {
+  color: #0072D4;
+}
+
+.ace_storage.ace_type {
+  color: #0072D4;
+}
+
+.ace_storage.ace_type.ace_tag {
+  color: #0072D4;
+}
+
+.ace_string {
+  color: #009C8F;
+}
+
+.ace_string.ace_regexp {
+  color: #009C8F;
+}
+
+.ace_support {
+  color: #0072D4;
+}
+
+.ace_support.ace_function {
+  color: #0072D4;
+}
+
+.ace_support.ace_type {
+  color: #AD8900;
+}
+
+.ace_support.ace_type.ace_property-name {
+  color: #AD8900;
+}
+
+.ace_variable {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_variable.ace_other {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_variable.ace_other.ace_alias {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_variable.ace_other.ace_anchor {
+  color: #489100;
+  font-weight: bold;
+}
+
+.ace_variable.ace_other.ace_constant {
+  color: #009C8F;
+}
+
+.ace_variable.ace_other.ace_object {
+  color: #53676D;
+}
+
+.ace_variable.ace_other.ace_property {
+  color: #AD8900;
+}
+
+.ace_xml-pe {
+  color: #909995;
 }
 
 /* Source: https://github.com/dieghernan/pretty-themes */

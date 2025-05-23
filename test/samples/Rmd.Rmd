@@ -1,0 +1,65 @@
+---
+title: "Rmd"
+output: html_document
+---
+
+# Title 1
+## Title 2
+### Title 3
+#### Title 4
+##### Title 5
+###### Title 6
+
+Normal text `here`.
+
+*Italic*
+**Bold on
+multiple lines**
+*Italic on
+multiple lines too*
+__It also works with underscores__
+_It also works with underscores_
+
+__An empty line
+
+is not allowed__
+
+[Prism](http://www.prismjs.com)
+[Prism](http://www.prismjs.com “Prism”)
+
+[prism link]: http://www.prismjs.com (Prism)
+[Prism] [prism link]
+
+* This is
+* an unordered list
+
+1. This is an
+2. ordered list
+
+* *List item in italic*
+* **List item in bold**
+* [List item as a link](http://example.com “This is an example”)
+
+> This is a quotation
+>> With another quotation inside
+> _italic here_, __bold there__
+> And a [link](http://example.com)
+
+
+Inline code between backticks `Paragraph`
+
+    some_code(); /* Indented
+    with four spaces */
+    
+```{r, eval=FALSE}
+library(dplyr)
+
+data("starwars")
+
+starwars |>
+  mutate(
+    a = mass * 2,
+    b = ifelse(is.na(hair_color), TRUE, FALSE),
+    c = paste0(skin_color, "_this")
+  )
+```

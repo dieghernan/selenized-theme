@@ -596,6 +596,7 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
 
 
   tmcols_clean <- tmcols |>
+    filter(section != "Scopes") |>
     mutate(
       tm = coalesce(scope, name),
       fg = coalesce(foreground, value),
@@ -611,66 +612,145 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
     filter(!is.na(rstheme)) |>
     select(rstheme, fg:fontstyle)
 
-  # Add constant languages as well
-  col2add <- tmcols_clean |>
-    filter(str_detect(tm, "^constant.language") |
-      tm == "constant") |>
-    arrange(tm) |>
-    slice_tail(n = 1) |>
-    mutate(rstheme = ".ace_constant") |>
-    select(rstheme, fg:fontstyle) |>
-    bind_rows(col2add) |>
-    arrange(rstheme) |>
-    distinct()
+  # Mapping of scopes to ace_editor
 
-  # Add constant others
-  col2add <- tmcols_clean |>
-    filter(str_detect(tm, "^constant.other") |
-      tm == "constant") |>
-    arrange(tm) |>
-    slice_tail(n = 1) |>
-    mutate(rstheme = ".ace_constant.ace_other") |>
-    select(rstheme, fg:fontstyle) |>
-    bind_rows(col2add) |>
-    arrange(rstheme) |>
-    distinct()
 
-  # Add operator as well
-  col2add <- tmcols_clean |>
-    filter(str_detect(tm, "^keyword.operator") |
-      tm == "keyword.operator") |>
-    arrange(tm) |>
-    slice_tail(n = 1) |>
-    mutate(rstheme = ".ace_keyword.ace_operator") |>
-    select(rstheme, fg:fontstyle) |>
-    bind_rows(col2add) |>
-    arrange(rstheme) |>
-    distinct()
+  tmcols_scopes <- tmcols |>
+    filter(section == "Scopes") |>
+    mutate(
+      tm = coalesce(scope, name),
+      fg = coalesce(foreground, value),
+      bg = background,
+      fontweight = ifelse(str_detect(fontStyle, "old"), "bold", NA),
+      fontstyle = ifelse(str_detect(fontStyle, "talic"), "italic", NA)
+    ) |>
+    select(tm, fg, bg, fontweight, fontstyle) |>
+    arrange(tm)
 
-  # Add href
-  col2add <- tmcols_clean |>
+  tmcols_scopes <- tmcols_scopes |>
     filter(str_detect(tm, "link")) |>
+    filter(str_detect(tm, " ", negate = TRUE)) |>
+    mutate(tm = "markup.href") |>
+    bind_rows(tmcols_scopes) |>
+    distinct() |>
+    arrange(tm)
+
+  tmcols_scopes <- tmcols_scopes |>
+    filter(str_detect(tm, "markup.heading")) |>
+    mutate(tm = "heading") |>
+    bind_rows(tmcols_scopes) |>
+    distinct() |>
+    arrange(tm)
+
+  tmcols_scopes <- tmcols_scopes |>
+    filter(tm %in% c(
+      "entity.name.tag.html",
+      "meta.tag"
+    )) |>
+    mutate(tm = "meta.tag") |>
+    bind_rows(tmcols_scopes) |>
+    distinct() |>
+    arrange(tm)
+
+  tmcols_scopes <- tmcols_scopes |>
+    filter(tm == "comment") |>
+    mutate(tm = "xml-pe") |>
+    bind_rows(tmcols_scopes) |>
+    distinct() |>
+    arrange(tm)
+
+  # Workout levels
+  lev3 <- tmcols_scopes |>
+    filter(str_count(tm, fixed(".")) == 2)
+
+  lev2 <- tmcols_scopes |>
+    filter(str_count(tm, fixed(".")) == 1)
+
+
+  lev1 <- tmcols_scopes |>
+    filter(str_count(tm, fixed(".")) == 0)
+
+  lev3 <- lev3 |>
+    group_by(tm) |>
+    mutate(n_times = n()) |>
+    arrange(desc(n_times)) |>
+    slice_max(n = 1, with_ties = FALSE, order_by = n_times) |>
+    select(-n_times)
+
+  # Convert in lev2 to enrich
+  newlev2 <- lev3 |>
+    mutate(new_tm = str_split_fixed(tm, fixed("."), n = 3)[1:2] |>
+      paste0(collapse = ".")) |>
+    group_by(new_tm) |>
+    group_map(function(x, y) {
+      x |>
+        group_by(fg, bg, fontweight, fontstyle) |>
+        summarise(n = n()) |>
+        ungroup() |>
+        arrange(desc(n)) |>
+        slice_head(n = 1) |>
+        mutate(tm = unlist(y)) |>
+        select(tm, fg:fontstyle)
+    }, .keep = TRUE) |>
+    bind_rows() |>
+    arrange(tm)
+
+
+  lev2 <- newlev2 |>
+    filter(!tm %in% lev2$tm) |>
+    bind_rows(lev2) |>
     arrange(tm) |>
-    slice_tail(n = 1) |>
-    mutate(rstheme = ".ace_markup.ace_href") |>
-    select(rstheme, fg:fontstyle) |>
-    bind_rows(col2add) |>
-    arrange(rstheme) |>
-    distinct()
+    distinct() |>
+    ungroup()
 
-  # Booleans
-  col2add <- tmcols_clean |>
-    filter(str_detect(tm, "^constant.language.boolean") |
-      tm == "constant.language") |>
+
+
+  # Convert in lev1 to enrich
+
+  lev1_vars <- str_split_fixed(lev2$tm, fixed("."), n = 2)[, 1] |>
+    unlist()
+  newlev1 <- lev2 |>
+    mutate(new_tm = lev1_vars) |>
+    group_by(new_tm) |>
+    group_map(function(x, y) {
+      x |>
+        group_by(fg, bg, fontweight, fontstyle) |>
+        summarise(n = n()) |>
+        ungroup() |>
+        arrange(desc(n)) |>
+        slice_head(n = 1) |>
+        mutate(tm = unlist(y)) |>
+        select(tm, fg:fontstyle)
+    }, .keep = TRUE) |>
+    bind_rows() |>
+    arrange(tm)
+
+
+  lev1 <- newlev1 |>
+    filter(!tm %in% lev1$tm) |>
+    bind_rows(lev1) |>
     arrange(tm) |>
-    slice_tail(n = 1) |>
-    mutate(rstheme = ".ace_constant.ace_language") |>
-    select(rstheme, fg:fontstyle) |>
-    bind_rows(col2add) |>
-    arrange(rstheme) |>
-    distinct()
+    distinct() |>
+    ungroup()
 
 
+
+  ace_scopes <- lev1 |>
+    bind_rows(lev2, lev3) |>
+    arrange(tm) |>
+    ungroup() |>
+    group_by(tm) |>
+    slice_head(n = 1) |>
+    mutate(
+      rstheme = str_replace_all(tm, fixed("."), ".ace_"),
+      rstheme = paste0(".ace_", rstheme)
+    ) |>
+    filter(!is.na(rstheme))
+
+
+  col2add <- col2add |>
+    bind_rows(ace_scopes) |>
+    select(rstheme:fontstyle)
 
   new_css <- c("/* Rules from tmTheme */", "")
   cssrule <- ".ace_heading"

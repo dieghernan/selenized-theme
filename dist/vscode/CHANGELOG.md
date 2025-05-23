@@ -3,6 +3,10 @@
 -   Themes are now more consistent. Scopes re-arranged based on Prism.js
     implementation.
 
+### RStudio
+
+-   Improved color themes.
+
 ## v0.1.3
 
 -   Main repo is now a monorepo.
