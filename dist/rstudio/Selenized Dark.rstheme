@@ -2430,7 +2430,6 @@
 
 .ace_entity.ace_other {
   color: #75B938;
-  font-weight: bold;
 }
 
 .ace_entity.ace_other.ace_document {
@@ -2544,7 +2543,7 @@
 }
 
 .ace_meta {
-  color: #4695F7;
+  color: #75B938;
 }
 
 .ace_meta.ace_at-rule {
@@ -2590,12 +2589,10 @@
 
 .ace_punctuation {
   color: #75B938;
-  font-weight: bold;
 }
 
 .ace_punctuation.ace_definition {
   color: #75B938;
-  font-weight: bold;
 }
 
 .ace_punctuation.ace_definition.ace_alias {
@@ -2614,7 +2611,6 @@
 
 .ace_punctuation.ace_section {
   color: #75B938;
-  font-weight: bold;
 }
 
 .ace_punctuation.ace_section.ace_embedded {
@@ -2624,22 +2620,6 @@
 
 .ace_punctuation.ace_separator {
   color: #ADBCBC;
-}
-
-.ace_source {
-  color: #4695F7;
-}
-
-.ace_source.ace_css keyword {
-  color: #4695F7;
-}
-
-.ace_source.ace_css keyword.ace_other {
-  color: #4695F7;
-}
-
-.ace_source.ace_css variable {
-  color: #ED8649;
 }
 
 .ace_storage {
@@ -2688,12 +2668,10 @@
 
 .ace_variable {
   color: #75B938;
-  font-weight: bold;
 }
 
 .ace_variable.ace_other {
   color: #75B938;
-  font-weight: bold;
 }
 
 .ace_variable.ace_other.ace_alias {

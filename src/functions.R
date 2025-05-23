@@ -617,6 +617,7 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
 
   tmcols_scopes <- tmcols |>
     filter(section == "Scopes") |>
+    filter(!str_detect(scope, " ")) |>
     mutate(
       tm = coalesce(scope, name),
       fg = coalesce(foreground, value),
@@ -625,7 +626,8 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
       fontstyle = ifelse(str_detect(fontStyle, "talic"), "italic", NA)
     ) |>
     select(tm, fg, bg, fontweight, fontstyle) |>
-    arrange(tm)
+    arrange(tm) |>
+    filter(any(!is.na(fg), !is.na(bg), !is.na(fontweight), !is.na(fontstyle)))
 
   tmcols_scopes <- tmcols_scopes |>
     filter(str_detect(tm, "link")) |>
@@ -681,6 +683,8 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
   newlev2 <- lev3 |>
     mutate(new_tm = str_split_fixed(tm, fixed("."), n = 3)[1:2] |>
       paste0(collapse = ".")) |>
+    # Just the color
+    mutate(bg = NA, fontweight = NA, fontstyle = NA) |>
     group_by(new_tm) |>
     group_map(function(x, y) {
       x |>
@@ -709,8 +713,11 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
 
   lev1_vars <- str_split_fixed(lev2$tm, fixed("."), n = 2)[, 1] |>
     unlist()
+
   newlev1 <- lev2 |>
     mutate(new_tm = lev1_vars) |>
+    # Just the color
+    mutate(bg = NA, fontweight = NA, fontstyle = NA) |>
     group_by(new_tm) |>
     group_map(function(x, y) {
       x |>
@@ -745,7 +752,8 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
       rstheme = str_replace_all(tm, fixed("."), ".ace_"),
       rstheme = paste0(".ace_", rstheme)
     ) |>
-    filter(!is.na(rstheme))
+    filter(!is.na(rstheme)) |>
+    filter(any(!is.na(fg), !is.na(bg), !is.na(fontweight), !is.na(fontstyle)))
 
 
   col2add <- col2add |>
