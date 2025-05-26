@@ -15,12 +15,18 @@ read_tmtheme <- function(input) {
       x <- trimws(x)
 
       # Guess if color and convert
-      res <- try(col2rgb(x), silent = TRUE)
+      res <- try(col2rgb(x, alpha = TRUE), silent = TRUE)
 
-      res
+
       if (!inherits(res, "try-error")) {
-        x <- rgb(t(res), maxColorValue = 255) |> toupper()
+        x <- rgb(t(res[1:3]), maxColorValue = 255) |> toupper()
+        if (res[4] < 255) {
+          aa <- res[4] / 255
+
+          x <- ggplot2::alpha(x, aa) |> toupper()
+        }
       }
+
 
 
       x <- gsub("  ", " ", x)
@@ -814,6 +820,7 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
   # SASS stylesheet
   compiler <- readLines("./src/_better_rstheme.scss")
 
+
   ## Build ----
 
   # Create a first compilation
@@ -833,6 +840,7 @@ tmtheme2rstheme <- function(tminput, rtheme_out) {
   )
 
   readLines(rtheme_out) %>%
+    str_replace_all(fixed("blur(1px)"), "brightness(75%)") %>%
     # New rules
     c(vtext, "", new_css) %>%
     # Compilers
