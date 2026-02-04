@@ -1,7 +1,10 @@
+## v0.2.1
+
+-   Improve visibility of invisibles/whitespaces.
+
 ## v0.2.0
 
--   Themes are now more consistent. Scopes re-arranged based on Prism.js
-    implementation.
+-   Themes are now more consistent. Scopes re-arranged based on Prism.js implementation.
 
 ### RStudio
 
@@ -13,8 +16,7 @@
 
 ## v0.1.2
 
--   Also available in <https://open-vsx.org/>
-    [[Link]](https://open-vsx.org/extension/dieghernan/selenized-theme).
+-   Also available in <https://open-vsx.org/> [[Link]](https://open-vsx.org/extension/dieghernan/selenized-theme).
 
 ## v0.1.1
 

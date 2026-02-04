@@ -35,7 +35,7 @@
 
 .ace_marker-layer .ace_bracket {
   margin: -1px 0 0 -1px;
-  border: 1px solid #E9E4D0;
+  border: 1px solid #3A626F;
 }
 
 .ace_marker-layer .ace_active-line {
@@ -56,7 +56,7 @@
 }
 
 .ace_invisible {
-  color: #E9E4D0;
+  color: #3A626F;
 }
 
 .ace_keyword {
@@ -2361,14 +2361,14 @@
   background: linear-gradient(to left, #dc91dbbb 1px, #dc91db77 1px, #dc91db77);
 }
 
-/* Generated and tested in RStudio 2025.05.0+496 ("Mariposa Orchid") */
+/* Generated and tested in RStudio 2025.09.1+401.pro2 ("Cucumberleaf Sunflower") */
 /* Rules from tmTheme */
 .ace_cursor {
   color: #489100;
 }
 
 .ace_print-margin {
-  background: #E9E4D0;
+  background: #3A626F;
 }
 
 .ace_comment {
