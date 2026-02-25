@@ -4,8 +4,6 @@ library(tidyverse)
 library(jsonlite)
 tminput <- "./dist/tmtheme/Selenized Dark.tmTheme"
 
-source("src/functions.R")
-
 # VScode -----
 output <- basename(tminput) %>%
   str_replace_all(".tmTheme", "-color-theme.json") %>%
@@ -15,8 +13,7 @@ output <- basename(tminput) %>%
 
 output
 
-tmtheme2vscode(tminput, output)
-
+rstudiothemes::convert_tm_to_vs_theme(tminput, output)
 
 
 # Modify name for store
@@ -30,20 +27,3 @@ js |>
 them_type <- read_json(output)$type
 
 message(basename(tminput), " is ", them_type)
-
-
-# RStudio Theme ----
-
-# Create a first compilation
-outdir <- "./dist/rstudio"
-rtheme_out <- tools::file_path_sans_ext(tminput) |>
-  basename() |>
-  paste0(".rstheme") %>%
-  file.path(outdir, .)
-
-
-tmtheme2rstheme(tminput, rtheme_out)
-
-
-# Apply the new theme
-rstudioapi::addTheme(rtheme_out, apply = TRUE, force = TRUE)

@@ -6,7 +6,6 @@
   "tokenColors": [
     {
       "settings": {
-        "background": "#FFFFFF",
         "foreground": "#474747"
       }
     },
@@ -222,7 +221,16 @@
         "foreground": "#C49700"
       }
     },
-    {},
+    {
+      "name": "punctuation",
+      "scope": [
+        "punctuation.definition.tag",
+        "punctuation.separator"
+      ],
+      "settings": {
+        "foreground": "#474747"
+      }
+    },
     {
       "name": "regex",
       "scope": "string.regexp",
@@ -267,7 +275,13 @@
         "fontStyle": "bold"
       }
     },
-    {},
+    {
+      "name": "variable",
+      "scope": "variable.other.object",
+      "settings": {
+        "foreground": "#474747"
+      }
+    },
     {
       "name": "url",
       "scope": "markup.underline.link",
@@ -326,17 +340,17 @@
     "editorGroupHeader.tabsBackground": "#FAFDFA",
     "editorHoverWidget.background": "#FAFDFA",
     "editorHoverWidget.border": "#878787",
-    "editorIndentGuide.background": "#878787",
+    "editorIndentGuide.background1": "#878787",
     "editorLineNumber.foreground": "#878787",
     "editorLink.activeForeground": "#1D9700",
-    "editorRuler.foreground": "#3A626F",
+    "editorRuler.foreground": "#3A626F33",
     "editorSuggestWidget.background": "#FAFDFA",
     "editorSuggestWidget.focusHighlightForeground": "#1D9700",
     "editorSuggestWidget.foreground": "#474747",
     "editorSuggestWidget.highlightForeground": "#1D9700",
     "editorSuggestWidget.selectedBackground": "#FAFDFA",
     "editorSuggestWidget.selectedIconForeground": "#1D9700",
-    "editorWhitespace.foreground": "#3A626F",
+    "editorWhitespace.foreground": "#3A626F33",
     "editorWidget.background": "#FAFDFA",
     "focusBorder": "#1D9700",
     "foreground": "#474747",
@@ -398,7 +412,6 @@
     "tab.inactiveForeground": "#474747",
     "terminal.background": "#FFFFFF",
     "terminal.border": "#D2EACC",
-    "terminal.cursor": "#1D9700",
     "terminal.foreground": "#474747",
     "terminalCursor.background": "#FFFFFF",
     "terminalCursor.foreground": "#1D9700",

@@ -8,27 +8,27 @@ Dark and light syntax themes with green accents inspired by [Selenized](https://
 
 **Selenized** is a redesign of [Solarized](https://ethanschoonover.com/solarized/), featuring:
 
--   Higher contrast and improved lightness, thanks to fine-tuned color palettes.
--   Consistent accent colors.
--   A focus on readability.
--   Four theme options:
-    -   Dark variants:
-        -   Black Theme
-        -   Dark Theme
-    -   Light variants:
-        -   Light Theme
-        -   White Theme
+- Higher contrast and improved lightness, thanks to fine-tuned color palettes.
+- Consistent accent colors.
+- A focus on readability.
+- Four theme options:
+  - Dark variants:
+    - Black Theme
+    - Dark Theme
+  - Light variants:
+    - Light Theme
+    - White Theme
 
 Themes available for:
 
--   **Visual Studio Code** (view in [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dieghernan.selenized-theme))
--   **RStudio**
--   **TextMate/Sublime**
--   **Pygments** (compatible with the **Jekyll** static site generator)
--   **highlight.js**
--   **Prism.js**
+- **Visual Studio Code** (view in [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dieghernan.selenized-theme))
+- **RStudio**: Use <https://dieghernan.github.io/rstudiothemes/>.
+- **TextMate/Sublime**
+- **Pygments** (compatible with the **Jekyll** static site generator)
+- **highlight.js**
+- **Prism.js**
 
-```         
+```
 .
 ├── .github
 ├── assets
@@ -36,7 +36,7 @@ Themes available for:
 │   ├── hljs              // highlight.js (*.css | *.min.css | *.scss files)
 │   ├── prismjs           // prism.js (*.css | *.min.css | *.scss files)
 │   ├── pygments          // Pygments/Jekyll (*.css | *.min.css | *.scss files)
-│   ├── rstudio           // RStudio (*.rstheme files)
+│   ├── rstudio           // <deprecated>
 │   ├── tmtheme           // TextMate/Sublime (*.tmTheme files)
 │   └── vscode            // Visual Studio Code Extension (Marketplace)
 ├── src
@@ -45,7 +45,7 @@ Themes available for:
 │...
 ```
 
-------------------------------------------------------------------------
+---
 
 # Selenized Black Theme
 
